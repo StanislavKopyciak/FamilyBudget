@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:FamilyBudget.ViewModels"
+    x:Class="FamilyBudget.LoginPage"
+    x:DataType="viewmodels:LoginViewModel">
+
+    <StackLayout Spacing="15" VerticalOptions="Center" HorizontalOptions="Center">
+        <Label 
+            Text="Вход"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="24"/>
+
+        <Entry 
+            Placeholder="Email"
+            Keyboard="Email"
+            WidthRequest="250"
+            HorizontalOptions="Center"
+            Text="{Binding Email}"
+            IsSpellCheckEnabled="False"
+            IsTextPredictionEnabled="False"
+            AutomationId="EmailEntry"/>
+
+        <Entry 
+            Placeholder="Пароль"
+            IsPassword="True"
+            WidthRequest="250"
+            HorizontalOptions="Center"
+            Text="{Binding Password}"/>
+
+
+        <Label 
+        Text="Зареєструватись" 
+        TextColor="#007AFF"
+        HorizontalOptions="Start"
+        FontAttributes="Bold">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding RegistrationLinkCommand}" />
+                </Label.GestureRecognizers>
+        </Label>
+
+        <Button 
+            Text="Увійти"
+            WidthRequest="250"
+            HorizontalOptions="Center"
+            BackgroundColor="#007AFF"
+            TextColor="White" 
+            Command="{Binding LoginCommand}"/>
+
+        <Label Text="{Binding Message}"/>
+
+    </StackLayout>
+</ContentPage>

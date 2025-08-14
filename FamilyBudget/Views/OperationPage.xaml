@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FamilyBudget.OperationPage"
+             Title="Мої операції">
+    <ScrollView>
+        <VerticalStackLayout Padding="10">
+
+        <Label Text="Загальний баланс"
+               FontSize="20"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+        <Label Text="{Binding Balance, StringFormat='{}{0:C}'}"
+               FontSize="24"
+               TextColor="{Binding Balance, Converter={StaticResource BalanceColorConverter}}"
+               HorizontalOptions="Center"
+               Margin="0,0,0,10" />
+
+            <Button Text="Оновити" Command="{Binding LoadOperationsCommand}" />
+
+            <CollectionView ItemsSource="{Binding Operations}" Margin="0,10,0,0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="LightGray" CornerRadius="8" Padding="10" Margin="0,5">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Type}" FontAttributes="Bold" />
+                                <Label Text="{Binding Category}" />
+                                <Label Text="{Binding Amount, StringFormat='Сума: {0:C}'}" />
+                                <Label Text="{Binding Date, StringFormat='{0:dd.MM.yyyy HH:mm}'}" FontSize="12" TextColor="Gray" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

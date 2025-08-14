@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FamilyBudget.RegistrationPage"
+             Title="RegistrationPage">
+    
+    <StackLayout Spacing="15" VerticalOptions="Center" HorizontalOptions="Center">
+        <Label 
+        Text="Створення акаунта"
+        VerticalOptions="Center" 
+        HorizontalOptions="Center"
+        FontSize="24"/>
+
+
+        <Entry 
+        Placeholder="Name"
+        WidthRequest="250"
+        HorizontalOptions="Center"
+        Text="{Binding Name}"/>
+
+        <Entry 
+        Placeholder="Email"
+        Keyboard="Email"
+        WidthRequest="250"
+        HorizontalOptions="Center"
+        Text="{Binding Email}"
+        IsSpellCheckEnabled="False"
+        IsTextPredictionEnabled="False"
+        AutomationId="EmailEntry"/>
+
+        <Entry 
+        Placeholder="Пароль"
+        IsPassword="True"
+        WidthRequest="250"
+        HorizontalOptions="Center"
+        Text="{Binding Password}"/>
+
+        <Entry 
+        Placeholder="Phone"
+        Keyboard="Telephone"
+        WidthRequest="250"
+        HorizontalOptions="Center"
+        Text="{Binding Phone}"/>
+
+        <Label 
+        Text="Увійти" 
+        TextColor="#007AFF"
+        HorizontalOptions="Start"
+        FontAttributes="Bold">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding LoginLinkCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Button 
+        Text="Створити"
+        WidthRequest="250"
+        HorizontalOptions="Center"
+        BackgroundColor="#007AFF"
+        TextColor="White" 
+        Command="{Binding RegistrationCommand}"/>
+
+        <Label Text="{Binding Message}"/>
+
+    </StackLayout>
+</ContentPage>

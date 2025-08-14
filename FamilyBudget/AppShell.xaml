@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="FamilyBudget.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FamilyBudget"
+    Shell.FlyoutBehavior="Flyout"
+    Title="FamilyBudget">
+    <ShellContent Route="LoginPage" Title="Логін" ContentTemplate="{DataTemplate local:LoginPage}" Shell.NavBarIsVisible="False" Shell.FlyoutBehavior="Disabled"/>
+    <ShellContent Route="RegistrationPage" Title="Реєстрація" ContentTemplate="{DataTemplate local:RegistrationPage}" Shell.NavBarIsVisible="False" Shell.FlyoutBehavior="Disabled"/>
+    <ShellContent Title="Головна" ContentTemplate="{DataTemplate local:MainPage}" Shell.NavBarIsVisible="False" />
+    <TabBar>
+        <ShellContent Route="ExpensePage" Title="Витрати" ContentTemplate="{DataTemplate local:ExpensePage}" Shell.NavBarIsVisible="False" Shell.FlyoutBehavior="Disabled"/>
+        <ShellContent Title="Прибуток" ContentTemplate="{DataTemplate local:IncomePage}" Shell.NavBarIsVisible="False" Shell.FlyoutBehavior="Disabled"/>
+        <ShellContent Title="Операції" ContentTemplate="{DataTemplate local:OperationPage}" Shell.NavBarIsVisible="False" Shell.FlyoutBehavior="Disabled"/>
+        <ShellContent Title="Статистика" ContentTemplate="{DataTemplate local:StatisticPage}" Shell.NavBarIsVisible="False" Shell.FlyoutBehavior="Disabled"/>
+        <ShellContent Title="Настройки" ContentTemplate="{DataTemplate local:SettingsPage}" Shell.NavBarIsVisible="False" Shell.FlyoutBehavior="Disabled"/>
+    </TabBar>
+</Shell>

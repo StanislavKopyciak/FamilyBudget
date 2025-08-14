@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microcharts="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+             x:Class="FamilyBudget.StatisticPage"
+             Title="Підсумки">
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+            <Label Text="Підсумки місяця" FontSize="24" FontAttributes="Bold"/>
+            <Button Text="Оновити" Command="{Binding RefreshCommand}" />
+
+            <Label Text="Баланс:" FontSize="18"/>
+            <Label Text="{Binding Balance, StringFormat='{0:C}'}" 
+                   FontSize="28" FontAttributes="Bold" TextColor="Green"/>
+
+            <Label Text="Графік витрат" FontAttributes="Bold"/>
+            <microcharts:ChartView Chart="{Binding ExpenseChart}" HeightRequest="200"/>
+
+            <Label Text="Графік щоденних витрат" FontAttributes="Bold"/>
+            <microcharts:ChartView Chart="{Binding DailyExpenseChart}" HeightRequest="200"/>
+
+            <Label Text="Графік щоденного доходу" FontAttributes="Bold"/>
+            <microcharts:ChartView Chart="{Binding DailyIncomeChart}" HeightRequest="200"/>
+
+            <Label Text="Топ-3 категорії витрат" FontAttributes="Bold"/>
+            <microcharts:ChartView Chart="{Binding TopExpenseCategoriesChart}" HeightRequest="200"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
